@@ -58,7 +58,7 @@ class ParamEditor extends React.Component<Props, State> {
 		}))
 	}
 
-	// получения структуры Model
+	// получение структуры Model
 	getModel(): Model {
 		const paramValue: ParamValue[] = Object.entries(this.state.values).map(
 			([paramId, value]) => ({
@@ -119,7 +119,6 @@ function App() {
 		paramValue: [
 			{ paramId: 1, value: 'повседневное' },
 			{ paramId: 2, value: 'макси' },
-			{ paramId: 4, value: 'макси2' },
 		],
 		colors: [],
 	}
@@ -128,8 +127,10 @@ function App() {
 		if (editorRef.current) {
 			const result = editorRef.current.getModel()
 			console.log('Model:', result)
+			console.log('Model2:', editorRef.current.getModel())
 		}
 	}
+
 	return (
 		<div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '50px' }}>
 			<ParamEditor ref={editorRef} params={params} model={model} />
